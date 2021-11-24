@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+
+    <form action="" method="post" class='form'>
+        {{ form.csrf_token }}
+        
+
+        <table class='text_table'>
+            <tr>
+                <td>
+                    {{ form.number.label }}
+                </td>
+            
+                <td align='right'>
+                    {{ form.number }}
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    {{ form.operation.label }}
+                </td>
+                
+                <td align='right'>
+                    {{ form.operation }}
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    {{ form.split_places_flag.label }}
+                </td>
+                
+                
+                <td align='right'>
+                    {{ form.split_places_flag }}
+                </td>    
+            </tr>
+            
+        
+            <tr>
+                <td>
+                    {{ form.explanatory_message.label }}
+                </td>
+                
+                <td align='right'>
+                    {% for subfield in form.explanatory_message %}
+                        <div class='rb_elem'> 
+                            {{ subfield }} {{ subfield.label }}
+                        </div>
+                        
+                    {% endfor %}
+                </td>
+            </tr>
+                
+        
+        <table>  
+        
+        <div class="center">
+                {{ form.submit }}
+        </div>
+    </form>
+
+{% endblock %}
